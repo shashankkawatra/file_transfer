@@ -3,6 +3,8 @@
     <head>
         <title>File Transfer</title>
         <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -12,9 +14,7 @@
             <a href="/download"><button>Download</button></a>
             <a href="/"><button>Upload</button></a>
         </div>
-        <div class="center">
             {% block body %}
             {% endblock %}
-        </div>
     </body>
 </html>

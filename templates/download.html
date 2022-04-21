@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
-<h1>Click on the file to download</h1>
+<div class="card_download">
+<h3>Click on the file to download</h1>
 {% if files %}
     {% for i in files %}
         {% set fname = i  %}
@@ -9,5 +10,7 @@
     {%endfor%}
 {% else %}
     <h3>No file available to download</h3>
+
+</div>
 {% endif %}
 {% endblock %}

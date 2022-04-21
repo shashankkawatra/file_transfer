@@ -1,20 +1,23 @@
 {% extends "layout.html" %}
 {% block body %}
+<div class="card">
+   <br>
+   <h4>File Upload</h2>
+   <br>
+   <form action="/" method="post" enctype="multipart/form-data" > 
+      <input type="file" name="file" >
+      <button type="submit" id='btn'>Submit</button>
+      <br><br>
+      <p id='size'><b>(Only .pptx, .docx & .xlsx file extensions allowed)</b></p>
+   </form>
+   <br>
+   {% with messages = get_flashed_messages() %}
+      {% if messages %}
+         {% for message in messages %}
+            <p style="color:red"><b>{{ message }}</b></p>
+         {% endfor %}
+      {% endif %}
+   {% endwith %}
 
-<h2>Select file you want to upload</h2>
-<p>(Only pptx, docx & xlsx file extensions allowed)</p>
-
-<form action="/" method="post" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <button type="submit">Submit</button>
-</form>
-<br>
-{% with messages = get_flashed_messages() %}
-   {% if messages %}
-      {% for message in messages %}
-         <p style="color:red"><b>{{ message }}</b></p>
-      {% endfor %}
-   {% endif %}
-{% endwith %}
-
-{% endblock %}
+   {% endblock %}
+</div>
