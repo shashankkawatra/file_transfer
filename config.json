@@ -1,0 +1,9 @@
+{
+  "params":
+  {
+    "admin_user":"admin",
+    "admin_password": "admin",
+    "upload_location":"/upload"
+  }
+
+}
