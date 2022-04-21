@@ -17,12 +17,22 @@
     <form class="form-signin" action="/" method="post">
       <img class="mb-4" src="{{url_for('static', filename='img/login.png')}}" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      
       <label for="uname" class="sr-only">User Name</label>
       <input type="text" id="uname" name="uname" class="form-control" placeholder="User Name" required autofocus>
       <label for="pass" class="sr-only">Password</label>
       <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+              <p style="color:red"><b>{{ message }}</b></p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      
     </form>
+    
 
 
  </body>

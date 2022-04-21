@@ -1,11 +1,9 @@
 from importlib.resources import path
 from flask import Flask, render_template, request, session, redirect, flash, url_for, send_from_directory
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 import json
 import os
-import math
-from datetime import datetime
 import glob
 
 
@@ -33,6 +31,8 @@ def home():
                 if secure_filename(f.filename) in file:
                     flash ("File with same name already exists, please change the name.")
                 else:
+                    if not os.path.isdir(app.config['UPLOAD_FOLDER']):
+                        os.mkdir(app.config['UPLOAD_FOLDER'])
                     f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
                     flash ('Uploaded successfully!')
             else:
@@ -46,6 +46,8 @@ def home():
             #set the session variable
             session['user'] = username
             return render_template('upload.html')
+        else:
+            flash("Invalid login credentials!")
 
     return render_template('login.html')
 
@@ -69,6 +71,8 @@ def download():
             #set the session variable
             session['user'] = username
             return render_template('download.html',files=files)
+        else:
+            flash("Invalid login credentials!")
 
     return render_template('login.html')
 

@@ -6,10 +6,9 @@
     {% for i in files %}
         {% set fname = i  %}
         <li><a href="{{ url_for('downloadfile', filename=fname) }}" target="_blank">{{i}}</a></li>
-        
     {%endfor%}
 {% else %}
-    <h3>No file available to download</h3>
+    <h4>No file available to download</h4>
 
 </div>
 {% endif %}
